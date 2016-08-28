@@ -6,6 +6,7 @@ public class GUI {
 	JPanel p = new JPanel();
 	
 	public GUI() {
-		// TODO Auto-generated constructor stub
+		f.add(p);
+		f.pack();
 	}
 }
