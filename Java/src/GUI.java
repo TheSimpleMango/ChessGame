@@ -4,8 +4,10 @@ import javax.swing.JPanel;
 public class GUI {
 	JFrame f = new JFrame("Chess");
 	JPanel p = new JPanel();
+	Board b = new Board();
 	
 	public GUI() {
-		// TODO Auto-generated constructor stub
+		f.add(p);
+		p.add(b);
 	}
 }
