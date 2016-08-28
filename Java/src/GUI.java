@@ -1,4 +1,5 @@
 import java.awt.BorderLayout;
+import java.awt.GridLayout;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 
@@ -8,10 +9,14 @@ import javax.swing.JPanel;
 
 public class GUI implements MouseListener {
 	JFrame f = new JFrame("Chess");
-	JPanel p = new JPanel(new BorderLayout());
+	JPanel p = new JPanel(new GridLayout(8, 8));
 	JLabel bL = new JLabel();
+	Board b = new Board();
 	
 	public GUI() {
+		for (iterable_type iterable_element : b.) {
+			
+		}
 		f.add(p);
 		p.add(bL);
 		f.pack();
@@ -29,7 +34,6 @@ public class GUI implements MouseListener {
 
 	@Override
 	public void mouseReleased(MouseEvent e) {
-		// TODO Auto-generated method stub
 		
 	}
 
