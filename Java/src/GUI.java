@@ -14,11 +14,8 @@ public class GUI implements MouseListener {
 	Board b = new Board();
 	
 	public GUI() {
-		for (iterable_type iterable_element : b.) {
-			
-		}
+		//add board
 		f.add(p);
-		p.add(bL);
 		f.pack();
 		p.addMouseListener(this);
 	}
@@ -29,7 +26,10 @@ public class GUI implements MouseListener {
 
 	@Override
 	public void mousePressed(MouseEvent e) {
-		e.getSource()
+		Tile t = (Tile) e.getSource();
+		if(t.getOccupation() == true){
+			
+		}
 	}
 
 	@Override
