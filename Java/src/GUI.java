@@ -2,6 +2,7 @@ import java.awt.BorderLayout;
 import java.awt.GridLayout;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
+import java.util.ArrayList;
 
 import javax.swing.JFrame;
 import javax.swing.JLabel;
@@ -10,12 +11,12 @@ import javax.swing.JPanel;
 public class GUI implements MouseListener {
 	JFrame f = new JFrame("Chess");
 	JPanel p = new JPanel(new GridLayout(8, 8));
-	JLabel bL = new JLabel();
+	ArrayList<JLabel> l = new ArrayList<>();
 	Board b = new Board();
 	
 	public GUI() {
-		for (iterable_type iterable_element : b.) {
-			
+		for (Tile t : b.tiles) {
+			l.add(new JLabel(t.))
 		}
 		f.add(p);
 		p.add(bL);
