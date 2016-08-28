@@ -2,10 +2,17 @@ import java.util.ArrayList;
 import java.util.HashMap;
 
 public abstract class Piece {
-	StringBuffer position;
-	HashMap<StringBuffer, Object> board = new HashMap<StringBuffer, Object>();
-	public abstract ArrayList<StringBuffer> getPosition();
-	public abstract void move(String spacesForwards, String spacesRight);
+	int position;
+	int[] boardPositions = new int[64];
+	Object[] boardPieces = new Object[64];
+
+	public abstract int getPosition();
+
+	public abstract void move(int spacesForwards, int spacesRight);
+
 	public abstract void removeFromBoard();
-	public abstract void setPosition(StringBuffer position);
+
+	public abstract void setPosition(int position);
+
+	public abstract void createBoard(int[] boardPositions, Object[] boardPieces);
 }
