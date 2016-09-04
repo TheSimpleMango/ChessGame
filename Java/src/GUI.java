@@ -22,7 +22,6 @@ public class GUI implements MouseListener {
 		p.addMouseListener(this);
 	}
 
-	
 	@Override
 	public void mouseClicked(MouseEvent e) {
 	}
