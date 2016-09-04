@@ -10,27 +10,30 @@ public class Rook extends Piece {
 
 	public void move(int spacesForwards, int spacesRight) {
 		// TODO Auto-generated method stub
-		int newPosition = 0;
-		if (spacesForwards > 0) {
-			newPosition = position + spacesForwards * 8;
-		} else if (spacesForwards < 0) {
-			newPosition = position - spacesForwards * 8;
-		}
-		if (boardPieces[newPosition] == null) {
-			setPosition(newPosition);
-		} else {
-			System.out.println("Tile already occupied.");
-		}
-		newPosition = 0;
-		if (spacesRight > 0) {
-			newPosition = position + spacesRight;
-		} else if (spacesForwards < 0) {
-			newPosition = position - spacesForwards * 8;
-		}
-		if (boardPieces[newPosition] == null) {
-			setPosition(newPosition);
-		} else {
-			System.out.println("Tile already occupied.");
+		if (spacesAbleToMoveForwards >= spacesForwards && spacesAbleToMoveRight >= spacesRight
+				&& spacesAbleToMoveBackwards <= spacesRight && spacesAbleToMoveLeft <= spacesRight) {
+			int newPosition = 0;
+			if (spacesForwards > 0) {
+				newPosition = position + spacesForwards * 8;
+			} else if (spacesForwards < 0) {
+				newPosition = position - spacesForwards * 8;
+			}
+			if (boardPieces[newPosition] == null) {
+				setPosition(newPosition);
+			} else {
+				System.out.println("Tile already occupied.");
+			}
+			newPosition = 0;
+			if (spacesRight > 0) {
+				newPosition = position + spacesRight;
+			} else if (spacesRight < 0) {
+				newPosition = position - spacesRight;
+			}
+			if (boardPieces[newPosition] == null) {
+				setPosition(newPosition);
+			} else {
+				System.out.println("Tile already occupied.");
+			}
 		}
 	}
 
@@ -45,5 +48,13 @@ public class Rook extends Piece {
 		removeFromBoard();
 		this.position = position;
 		boardPieces[position] = rook;
+		for (int i = 8; i < 65; i = i + 8) {
+			if (position > i - 8 && position < i) {
+				spacesAbleToMoveForwards = (64 - i) / 8;
+				spacesAbleToMoveBackwards = 7 - spacesAbleToMoveForwards;
+				spacesAbleToMoveRight = i - position;
+				spacesAbleToMoveLeft = 7 - spacesAbleToMoveRight;
+			}
+		}
 	}
 }
