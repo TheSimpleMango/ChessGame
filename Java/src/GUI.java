@@ -1,4 +1,6 @@
 import java.awt.BorderLayout;
+import java.awt.Color;
+import java.awt.Graphics;
 import java.awt.GridLayout;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
@@ -20,6 +22,7 @@ public class GUI implements MouseListener {
 		p.addMouseListener(this);
 	}
 
+	
 	@Override
 	public void mouseClicked(MouseEvent e) {
 	}
