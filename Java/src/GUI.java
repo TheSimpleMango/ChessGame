@@ -26,7 +26,10 @@ public class GUI implements MouseListener {
 
 	@Override
 	public void mousePressed(MouseEvent e) {
-		e.getSource()
+		Tile t = (Tile) e.getSource();
+		if(t.getOccupation() == true){
+			
+		}
 	}
 
 	@Override

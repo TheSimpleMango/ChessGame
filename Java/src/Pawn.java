@@ -9,7 +9,6 @@ public class Pawn extends Piece {
 		return position;
 	}
 
-	@Override
 	public void move(int spacesForwards, int spacesRight) {
 		// TODO Auto-generated method stub
 		removeFromBoard();
@@ -20,13 +19,6 @@ public class Pawn extends Piece {
 		}
 	}
 
-	@Override
-	public void removeFromBoard() {
-		// TODO Auto-generated method stub
-		boardPieces[position] = null;
-	}
-
-	@Override
 	public void setPosition(int position) {
 		// TODO Auto-generated method stub
 		this.position = position;
@@ -36,13 +28,4 @@ public class Pawn extends Piece {
 			System.out.println("Tile already occupied.");
 		}
 	}
-
-	@Override
-	public void createBoard(int[] boardPositions, Object[] boardPieces) {
-		// TODO Auto-generated method stub
-		for (int i = 0; i < 64; i++) {
-			boardPositions[i] = i;
-		}
-	}
-
 }
