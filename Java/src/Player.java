@@ -4,7 +4,9 @@ public class Player {
 	String name;
 	public ArrayList<Piece> pieces = new ArrayList<Piece>();
 	// you may change the whole arraylist by using setPieces or just use
-	// (playername).pieces.....
+	// (playername).pieces.add(Piece piece);
+	// or
+	// (playername).pieces.remove(Piece piece);
 
 	Player(String name) {
 		this.name = name;
