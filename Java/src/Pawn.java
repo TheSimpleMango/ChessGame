@@ -11,21 +11,28 @@ public class Pawn extends Piece {
 
 	public void move(int spacesForwards, int spacesRight) {
 		// TODO Auto-generated method stub
-		removeFromBoard();
-		if (spacesForwards > 1) {
-			position = position - spacesForwards * 8;
+		int newPosition = 0;
+		if (spacesForwards > 0) {
+			newPosition = position + spacesForwards * 8;
 		} else if (spacesForwards < 0) {
-			position = position + spacesForwards * 8;
+			newPosition = position - spacesForwards * 8;
+		}
+		if (boardPieces[newPosition] == null) {
+			setPosition(newPosition);
+		} else {
+			System.out.println("Tile already occupied.");
 		}
 	}
 
 	public void setPosition(int position) {
 		// TODO Auto-generated method stub
+		removeFromBoard();
 		this.position = position;
-		if (boardPieces[position] == null) {
-			boardPieces[position] = pawn;
-		} else {
-			System.out.println("Tile already occupied.");
-		}
+		boardPieces[position] = pawn;
+	}
+	
+	public void takePiece()
+	{
+		
 	}
 }
