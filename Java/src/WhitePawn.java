@@ -1,7 +1,13 @@
 import java.util.ArrayList;
 
-public class Pawn extends Piece {
-	Pawn pawn = new Pawn();
+public class WhitePawn extends Piece {
+	WhitePawn pawn = new WhitePawn();
+	boolean color = true;//true = white, false = black
+	
+	public boolean getColor()
+	{
+		return color;
+	}
 
 	@Override
 	public int getPosition() {
@@ -22,7 +28,7 @@ public class Pawn extends Piece {
 			if (boardPieces[newPosition] == null) {
 				setPosition(newPosition);
 			} else {
-				System.out.println("Tile already occupied.");
+				checkIfOpposingPiece(newPosition);
 			}
 			newPosition = 0;
 			if (spacesRight > 0) {
@@ -36,6 +42,15 @@ public class Pawn extends Piece {
 				System.out.println("Tile already occupied.");
 			}
 		}
+	}
+
+	private boolean checkIfOpposingPiece(int newPosition) {
+		// TODO Auto-generated method stub
+		if(boardPieces[newPosition].getColor() == true)
+		{
+			
+		}
+		return true;
 	}
 
 	public void setPosition(int position) {
@@ -54,6 +69,6 @@ public class Pawn extends Piece {
 	}
 
 	public void takePiece() {
-
+		
 	}
 }
