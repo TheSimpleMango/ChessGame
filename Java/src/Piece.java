@@ -1,18 +1,24 @@
 import java.util.ArrayList;
 import java.util.HashMap;
 
-public abstract class Piece {
+public class Piece {
 	int position;
 	int[] boardPositions = new int[64];
 	Object[] boardPieces = new Object[64];
 
-	public abstract int getPosition();
+	public Piece() {
+		for (int i = 0; i < 64; i++) {
+			boardPositions[i] = i;
+		}
+	}
 
-	public abstract void move(int spacesForwards, int spacesRight);
+	public int getPosition() {
+		// TODO Auto-generated method stub
+		return position;
+	}
 
-	public abstract void removeFromBoard();
-
-	public abstract void setPosition(int position);
-
-	public abstract void createBoard(int[] boardPositions, Object[] boardPieces);
+	public void removeFromBoard() {
+		// TODO Auto-generated method stub
+		boardPieces[position] = null;
+	}
 }
