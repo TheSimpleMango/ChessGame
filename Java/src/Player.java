@@ -10,6 +10,7 @@ public class Player {
 
 	Player(String name) {
 		this.name = name;
+		System.out.println("Created player with name " + name + ".");
 	}
 
 	public String getName() {
