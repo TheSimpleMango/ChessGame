@@ -67,7 +67,6 @@ public class GUI extends JFrame implements MouseListener, ActionListener{
 				hasPiece = false;
 			}else {
 				hasPiece = false;
-				
 			}
 		}
 	}

@@ -3,7 +3,7 @@ import java.awt.Graphics;
 import javax.swing.JButton;
 
 public class Board {
-
+	
 	public JButton[][] tiles = new Tile[8][8];
 	
 	public Board(){
@@ -12,6 +12,7 @@ public class Board {
 				tiles[i][j] = new Tile();
 			}
 		}
+		
 	}
 
 	public void update(){
