@@ -28,12 +28,10 @@ public class GUI extends JFrame implements MouseListener, ActionListener{
 	Timer t = new Timer(100, this);
 	Boolean hasPiece = false;
 	Position mousePiecePosition = new Position();
-	final mouseImageComponent mIC;
 
 	public GUI(Player play1, Player play2) throws IOException {
 		Image blackTile = ImageIO.read(getClass().getResource("Dark.png"));
 		Image whiteTile = ImageIO.read(getClass().getResource("Light.png"));
-		mIC = new mouseImageComponent();
 		
 		this.setTitle(play1.getName() + " vs. " + play2.getName());
 		this.add(p);
@@ -42,13 +40,13 @@ public class GUI extends JFrame implements MouseListener, ActionListener{
 	    
 		for (int i = 0; i < 8; i++) {
 			for (int j = 0; j < 8; j++) {
-				b.buttons[i][j].setPreferredSize(new Dimension(50, 50));
-				b.buttons[i][j].addMouseListener(this);
-				p.add(b.buttons[i][j]);
+				b.tiles[i][j].setPreferredSize(new Dimension(50, 50));
+				b.tiles[i][j].addMouseListener(this);
+				p.add(b.tiles[i][j]);
 				if ((i + j) % 2 == 0) {
-					b.buttons[i][j].setIcon(new ImageIcon(whiteTile));
+					b.tiles[i][j].setIcon(new ImageIcon(whiteTile));
 				} else {
-					b.buttons[i][j].setIcon(new ImageIcon(blackTile));
+					b.tiles[i][j].setIcon(new ImageIcon(blackTile));
 				}
 			}
 		}
@@ -57,8 +55,7 @@ public class GUI extends JFrame implements MouseListener, ActionListener{
 
 	@Override
 	public void mouseClicked(MouseEvent e) {
-		JButton button = (JButton) e.getSource();
-		Tile tile = new Tile(new Position(1,1));
+		Tile tile = (Tile) e.getSource();
 		System.out.println(tile);
 		if (!hasPiece) {
 			if (tile.getOccupation()) {
@@ -107,22 +104,4 @@ public class GUI extends JFrame implements MouseListener, ActionListener{
 			Position mousePiecePosition = new Position(e.getX(), e.getY());
 		}
 	}*/
-}
-
-class mouseImageComponent extends JComponent
-{
-  public int x;
-  public int y;
-  
-  public mouseImageComponent() {
-    this.setBackground(Color.blue);
-  }
-  
-  public void paintComponent(Graphics g)
-  {
-    super.paintComponent(g);
-    String s = x + ", " + y;
-    g.setColor(Color.red);
-    g.drawString(s, x, y);
-  }
 }

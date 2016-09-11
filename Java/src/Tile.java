@@ -1,5 +1,6 @@
+import javax.swing.JButton;
 
-public class Tile {
+public class Tile extends JButton {
 
 	private boolean isOccupied;
 	private Position p;
