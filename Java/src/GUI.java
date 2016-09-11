@@ -45,7 +45,6 @@ public class GUI extends JFrame implements MouseListener, ActionListener{
 		p.addMouseListener(this);
 	}
 
-	
 	@Override
 	public void mouseClicked(MouseEvent e) {
 	}
