@@ -18,4 +18,12 @@ public class Board {
 		
 	}
 	
+	public boolean isOccupied(int x, int y){
+		if(tiles[x][y].isEnabled()){
+			return true;
+		}
+		else
+			return false;
+	}
+	
 }

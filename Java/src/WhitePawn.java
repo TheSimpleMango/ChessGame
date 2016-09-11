@@ -1,6 +1,13 @@
+import java.util.ArrayList;
 
-public class Rook extends Piece {
-	Rook rook = new Rook();
+public class WhitePawn extends Piece {
+	WhitePawn pawn = new WhitePawn();
+	boolean color = true;//true = white, false = black
+	
+	public boolean getColor()
+	{
+		return color;
+	}
 
 	@Override
 	public int getPosition() {
@@ -21,7 +28,7 @@ public class Rook extends Piece {
 			if (boardPieces[newPosition] == null) {
 				setPosition(newPosition);
 			} else {
-				System.out.println("Tile already occupied.");
+				checkIfOpposingPiece(newPosition);
 			}
 			newPosition = 0;
 			if (spacesRight > 0) {
@@ -37,17 +44,20 @@ public class Rook extends Piece {
 		}
 	}
 
-	@Override
-	public void removeFromBoard() {
+	private boolean checkIfOpposingPiece(int newPosition) {
 		// TODO Auto-generated method stub
-		boardPieces[position] = null;
+		if(boardPieces[newPosition].getColor() == true)
+		{
+			
+		}
+		return true;
 	}
 
 	public void setPosition(int position) {
 		// TODO Auto-generated method stub
 		removeFromBoard();
 		this.position = position;
-		boardPieces[position] = rook;
+		boardPieces[position] = pawn;
 		for (int i = 8; i < 65; i = i + 8) {
 			if (position > i - 8 && position < i) {
 				spacesAbleToMoveForwards = (64 - i) / 8;
@@ -56,5 +66,9 @@ public class Rook extends Piece {
 				spacesAbleToMoveLeft = 7 - spacesAbleToMoveRight;
 			}
 		}
+	}
+
+	public void takePiece() {
+		
 	}
 }
