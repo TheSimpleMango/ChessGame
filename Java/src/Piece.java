@@ -5,12 +5,12 @@ public class Piece extends Tile{
 	// available positions to go to from current position
 	int[][] availPositions;
 	/*
-	 0 - rook
-	 1 - knight
-	 2 - bishop
-	 3 - king
-	 4 - queen
-	 5 - pawn
+	 1 - rook
+	 2 - knight
+	 3 - bishop
+	 4 - king
+	 5 - queen
+	 6 - pawn
 	 */
 	private int typeOfPiece;
 	private boolean isWhite;
