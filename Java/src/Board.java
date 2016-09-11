@@ -19,6 +19,27 @@ public class Board {
 		
 	}
 	
+	public void startPositions(){
+		Piece p;
+		// other pieces
+			for (int i = 1; i < 4; i++) {
+				p = (Piece) tiles[1][i];
+				p.setTypeOfPiece(i);
+				p = (Piece) tiles[1][i + 7];
+				p.setTypeOfPiece(i);
+				p = (Piece) tiles[8][i];
+				p.setTypeOfPiece(i);
+				p = (Piece) tiles[8][i + 7];
+				p.setTypeOfPiece(i);
+			}
+			//pawns
+			for (int i = 0; i < tiles.length; i++) {
+				
+			}
+			// queen / king
+			
+	}
+	
 	public boolean isOccupied(int x, int y){
 		if(((Tile) tiles[x][y]).getOccupation()){
 			return true;
