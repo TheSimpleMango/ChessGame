@@ -3,15 +3,13 @@ import javax.swing.JButton;
 public class Tile extends JButton {
 
 	private boolean isOccupied;
-	private Position p;
+	int x;
+	int y;
 	
 	
-	public Tile(){
-		
-	}
-	
-	public Tile(Position position) {
-		this.p = position;
+	public Tile(int x, int y){
+		this.x = x;
+		this.y = y;
 	}
 
 	public boolean getOccupation(){
@@ -22,12 +20,20 @@ public class Tile extends JButton {
 		isOccupied = true;
 	}
 
-	public Position getPosition() {
-		return p;
+	public int getX() {
+		return x;
 	}
 
-	public void setPosition(Position p) {
-		this.p = p;
+	public void setX(int x) {
+		this.x = x;
+	}
+
+	public int getY() {
+		return y;
+	}
+
+	public void setY(int y) {
+		this.y = y;
 	}
 	
 }

@@ -2,8 +2,8 @@ import java.util.ArrayList;
 import java.util.HashMap;
 
 public class Piece extends Tile{
-	Position position;
-	//Board spaces are numbered from 1 to 64 starting in the bottom left corner and ending in the top corner. At the
+	// available positions to go to from current position
+	int[][] availPositions;
 	/*
 	 0 - rook
 	 1 - knight
@@ -14,12 +14,8 @@ public class Piece extends Tile{
 	 */
 	private int typeOfPiece;
 	private boolean isWhite;
-	public Piece() {
-		
-	}
-
-	public Position getPosition() {
-		return position;
+	public Piece(int x, int y) {
+		super(x, y);
 	}
 
 	public int getTypeOfPiece() {

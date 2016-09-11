@@ -27,7 +27,8 @@ public class GUI extends JFrame implements MouseListener, ActionListener{
 	Board b = new Board();
 	Timer t = new Timer(100, this);
 	Boolean hasPiece = false;
-	Position mousePiecePosition = new Position();
+	int selectedPieceX;
+	int selectedPieceY;
 
 	public GUI(Player play1, Player play2) throws IOException {
 		Image blackTile = ImageIO.read(getClass().getResource("Dark.png"));
@@ -60,10 +61,11 @@ public class GUI extends JFrame implements MouseListener, ActionListener{
 		if (!hasPiece) {
 			if (tile.getOccupation()) {
 				hasPiece = true;
-				mousePiecePosition = tile.getPosition();
+				selectedPieceX = tile.getX();
+				selectedPieceY = tile.getY();
 			}
 		}else{
-			if (mousePiecePosition == tile.getPosition()) {
+			if (false/*other stuff*/) {
 				hasPiece = false;
 			}else {
 				hasPiece = false;
