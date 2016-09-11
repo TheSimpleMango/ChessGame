@@ -8,7 +8,7 @@ public class Tile extends JButton{
 	
 	public Tile(int x, int y){
 		super();
-=======
+
 public class Tile extends JButton {
 
 	private boolean isOccupied;
@@ -17,7 +17,7 @@ public class Tile extends JButton {
 	
 	
 	public Tile(int x, int y){
->>>>>>> TheSimpleMango/master
+
 		this.x = x;
 		this.y = y;
 	}
