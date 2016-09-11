@@ -1,7 +1,7 @@
 import java.util.ArrayList;
 import java.util.HashMap;
 
-public class Piece {
+public class Piece extends Tile{
 	int position;
 	int spacesAbleToMoveForwards;
 	int spacesAbleToMoveRight;
@@ -21,7 +21,7 @@ public class Piece {
 		return true;
 	}
 
-	public int getPosition() {
+	public Position getPosition() {
 		// TODO Auto-generated method stub
 		return position;
 	}

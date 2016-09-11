@@ -30,31 +30,15 @@ public class GUI extends JFrame implements MouseListener, ActionListener{
 	Position mousePiecePosition = new Position();
 	final mouseImageComponent mIC;
 
-	public GUI() throws IOException {
+	public GUI(Player play1, Player play2) throws IOException {
 		Image blackTile = ImageIO.read(getClass().getResource("Dark.png"));
 		Image whiteTile = ImageIO.read(getClass().getResource("Light.png"));
 		mIC = new mouseImageComponent();
 		
+		this.setTitle(play1.getName() + " vs. " + play2.getName());
 		this.add(p);
 		this.setDefaultCloseOperation(this.EXIT_ON_CLOSE);
 		this.setVisible(true);
-		
-	    JLayeredPane layeredPane = this.getRootPane().getLayeredPane();
-	    layeredPane.add(mIC, JLayeredPane.DRAG_LAYER);
-	    mIC.setBounds(0, 0, this.getWidth(), this.getHeight());
-	    
-	    // add this to every single damn button if i have to
-	    // make a button class godam it
-		this.addMouseMotionListener(new MouseMotionAdapter() {
-		      public void mouseMoved(MouseEvent me)
-		      {
-		        mIC.x = me.getX();
-		        mIC.y = me.getY();
-		        mIC.repaint();
-		      }
-		});
-		
-	    this.setCursor(new Cursor(Cursor.CROSSHAIR_CURSOR));
 	    
 		for (int i = 0; i < 8; i++) {
 			for (int j = 0; j < 8; j++) {
