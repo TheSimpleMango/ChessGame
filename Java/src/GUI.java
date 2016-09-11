@@ -68,6 +68,8 @@ public class GUI extends JFrame implements MouseListener, ActionListener{
 	public void mouseClicked(MouseEvent e) {
 		Tile tile = (Tile) e.getSource();
 		System.out.println(tile);
+		System.out.println(tile.x);
+		System.out.println(tile.y);
 		if (!hasPiece) {
 			if (tile.getOccupation()) {
 				hasPiece = true;
@@ -75,7 +77,7 @@ public class GUI extends JFrame implements MouseListener, ActionListener{
 				selectedPieceY = tile.getY();
 			}
 		}else{
-			if (false/*other stuff*/) {
+			if (false) {
 				hasPiece = false;
 			}else {
 				hasPiece = false;
