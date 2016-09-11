@@ -1,11 +1,14 @@
+import javax.swing.JButton;
 
-public class Tile {
+public class Tile extends JButton{
 
 	private boolean isOccupied;
+	int x, y;
 	
-	
-	public Tile(){
-		
+	public Tile(int x, int y){
+		super();
+		this.x = x;
+		this.y = y;
 	}
 	
 	public boolean getOccupation(){

@@ -28,13 +28,13 @@ public class GUI extends JFrame implements MouseListener, ActionListener{
 		Image whiteTile = ImageIO.read(getClass().getResource("Light.png"));
 		for (int i = 0; i < 8; i++) {
 			for (int j = 0; j < 8; j++) {
-				b.tiles[i][j].setPreferredSize(new Dimension(50, 50));
-				p.add(b.tiles[i][j]);
+				b.buttons[i][j].setPreferredSize(new Dimension(50, 50));
+				p.add(b.buttons[i][j]);
 				if ((i + j) % 2 == 0) {
-					b.tiles[i][j].setIcon(new ImageIcon(whiteTile));
+					b.buttons[i][j].setIcon(new ImageIcon(whiteTile));
 				}
 				else {
-					b.tiles[i][j].setIcon(new ImageIcon(blackTile));
+					b.buttons[i][j].setIcon(new ImageIcon(blackTile));
 				}
 			}
 		}
