@@ -19,6 +19,16 @@ public class Board {
 		
 	}
 	
+	public void startPositions(){
+		Piece p;
+		for (int i = 1; i < tiles.length; i++) {
+			for (int j = 1; j < tiles.length; j++) {
+				p = (Piece) tiles[i][j];
+				p.setTypeOfPiece(typeOfPiece);
+			}
+		}
+	}
+	
 	public boolean isOccupied(int x, int y){
 		if(((Tile) tiles[x][y]).getOccupation()){
 			return true;
