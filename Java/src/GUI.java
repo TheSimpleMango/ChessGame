@@ -11,19 +11,32 @@ import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import java.awt.event.MouseMotionAdapter;
 import java.awt.event.MouseMotionListener;
+import java.io.File;
 import java.io.IOException;
 
 import javax.imageio.ImageIO;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JComponent;
+import javax.swing.JFileChooser;
 import javax.swing.JFrame;
 import javax.swing.JLayeredPane;
+import javax.swing.JMenu;
+import javax.swing.JMenuBar;
+import javax.swing.JMenuItem;
 import javax.swing.JPanel;
 import javax.swing.Timer;
+import javax.swing.filechooser.FileFilter;
+import javax.swing.filechooser.FileNameExtensionFilter;
 
 public class GUI extends JFrame implements MouseListener, ActionListener{
 	JPanel p = new JPanel(new GridLayout(8, 8));
+	JMenuBar menus = new JMenuBar();
+	JMenu file = new JMenu("File");
+	JMenuItem save = new JMenuItem("Save");
+	JMenuItem rename = new JMenuItem("Change Names");
+	JFileChooser filechooser = new JFileChooser();
+	FileFilter filter = new FileNameExtensionFilter("CHESSX file", "chessx");
 	Board b = new Board();
 	Timer t = new Timer(100, this);
 	Boolean hasPiece = false;
@@ -33,6 +46,13 @@ public class GUI extends JFrame implements MouseListener, ActionListener{
 	public GUI(Player play1, Player play2) throws IOException {
 		Image blackTile = ImageIO.read(getClass().getResource("Dark.png"));
 		Image whiteTile = ImageIO.read(getClass().getResource("Light.png"));
+
+		this.setJMenuBar(menus);
+		save.addActionListener(this);
+		rename.addActionListener(this);
+		menus.add(file);
+		file.add(save);
+		file.add(rename);
 		
 		this.setTitle(play1.getName() + " vs. " + play2.getName());
 		this.add(p);
@@ -94,9 +114,16 @@ public class GUI extends JFrame implements MouseListener, ActionListener{
 
 	@Override
 	public void actionPerformed(ActionEvent e) {
-		repaint();
+		if(e.getSource() == save){
+			System.out.println("Saving game...");
+			save();
+		}else if(e.getSource() == rename){
+			System.out.println();
+		}else{
+			repaint();
+		}
 	}
-/*
+		/*
 	@Override
 	public void mouseDragged(MouseEvent e) {
 	}
@@ -107,4 +134,16 @@ public class GUI extends JFrame implements MouseListener, ActionListener{
 			Position mousePiecePosition = new Position(e.getX(), e.getY());
 		}
 	}*/
+	public void save(){
+		//TODO: Insert save code, future update. BEING WORKED ON!
+		filechooser.setCurrentDirectory(new File("/Users/League/Desktop"));
+		filechooser.setDialogTitle("Save...");
+		filechooser.setFileSelectionMode(JFileChooser.FILES_ONLY);
+		filechooser.setFileFilter(filter);
+		filechooser.removeChoosableFileFilter(filechooser.getAcceptAllFileFilter());
+		if(filechooser.showSaveDialog(save) == JFileChooser.APPROVE_OPTION){
+			
+		}
+		System.out.println("Path to save location: " + filechooser.getSelectedFile().getAbsolutePath());
+	}
 }
