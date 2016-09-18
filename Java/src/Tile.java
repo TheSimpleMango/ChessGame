@@ -1,13 +1,5 @@
 import javax.swing.JButton;
 
-<<<<<<< HEAD
-public class Tile extends JButton{
-
-	private boolean isOccupied;
-	int x, y;
-	
-	public Tile(int x, int y){
-		super();
 
 public class Tile extends JButton {
 
@@ -17,7 +9,7 @@ public class Tile extends JButton {
 	
 	
 	public Tile(int x, int y){
-
+		super();
 		this.x = x;
 		this.y = y;
 	}
@@ -45,5 +37,7 @@ public class Tile extends JButton {
 	public void setY(int y) {
 		this.y = y;
 	}
+
+
 	
 }

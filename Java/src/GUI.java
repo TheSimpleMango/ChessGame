@@ -49,18 +49,19 @@ public class GUI extends JFrame implements MouseListener, ActionListener{
 				}
 				else {
 
-				b.tiles[i][j].setPreferredSize(new Dimension(50, 50));
-				b.tiles[i][j].addMouseListener(this);
-				p.add(b.tiles[i][j]);
-				if ((i + j) % 2 == 0) {
-					b.tiles[i][j].setIcon(new ImageIcon(whiteTile));
-				} else {
-					b.tiles[i][j].setIcon(new ImageIcon(blackTile));
-
+					b.buttons[i][j].setPreferredSize(new Dimension(50, 50));
+					b.buttons[i][j].addMouseListener(this);
+					p.add(b.buttons[i][j]);
+					if ((i + j) % 2 == 0) {
+						b.buttons[i][j].setIcon(new ImageIcon(whiteTile));
+					} else {
+						b.buttons[i][j].setIcon(new ImageIcon(blackTile));
+	
+					}
 				}
 			}
+			this.pack();
 		}
-		this.pack();
 	}
 
 	@Override
