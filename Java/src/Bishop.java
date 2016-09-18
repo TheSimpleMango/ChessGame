@@ -1,12 +1,11 @@
-
-public class Pawn extends Piece {
+public class Bishop extends Piece {
 	int x;
 	int y;
 	int typeOfPiece;
 	boolean isWhite;
 	int moves = 0;
 
-	public Pawn(int x, int y, int typeOfPiece, boolean isWhite) {
+	public Bishop(int x, int y, int typeOfPiece, boolean isWhite) {
 		super(x, y);
 		this.x = x;
 		this.y = y;
@@ -20,26 +19,27 @@ public class Pawn extends Piece {
 		int pos = Integer.parseInt(xPos + "" + yPos);
 		Piece piece = pieceArray.get(pos);
 		if (piece == null) {
-			pieceArray.replace(pos, pawn);
+			pieceArray.replace(pos, bishop);
 		} else {
 			System.out.println("There is already a piece here.");
 		}
 	}
 
-	Pawn pawn = new Pawn(x, y, typeOfPiece, isWhite);
+	Bishop bishop = new Bishop(x, y, typeOfPiece, isWhite);
 
 	public void move(int newX, int newY) {
 		int pos = Integer.parseInt(newX + "" + newY);
 		Piece piece = pieceArray.get(pos);
-		if ((newY == y + 1) || (newY == y + 2 && moves == 0)) {
+		if (newY != y && newX != x) { 
+//			^^ NEEDS TO BE FIXED
 			if (piece == null) {
-				pieceArray.replace(pos, pawn);
+				pieceArray.replace(pos, bishop);
 				moves++;
 			} else {
-				if ((piece.isWhite() == true && pawn.isWhite == false)
-						|| (piece.isWhite() == false && pawn.isWhite == true)) {
+				if ((piece.isWhite() == true && bishop.isWhite == false)
+						|| (piece.isWhite() == false && bishop.isWhite == true)) {
 					removeFromBoard(newX, newY);
-					pieceArray.replace(pos, pawn);
+					pieceArray.replace(pos, bishop);
 					moves++;
 				} else {
 					System.out.println("You can't move there.");
