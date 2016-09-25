@@ -30,7 +30,7 @@ public class Queen extends Piece {
 	public void move(int newX, int newY) {
 		int pos = Integer.parseInt(newX + "" + newY);
 		Piece piece = pieceArray.get(pos);
-		if (newY == y || newX == x) {
+		if (newY == y || newX == x || Math.abs(newY) == Math.abs(newX)) {
 			if (piece == null) {
 				pieceArray.replace(pos, queen);
 				moves++;
